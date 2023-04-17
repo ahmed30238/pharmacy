@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/model/model.dart';
+import 'package:pharmacy/screens/cart_screen.dart';
 import 'package:pharmacy/screens/category_screen.dart';
 import 'package:pharmacy/screens/layout.dart';
 
@@ -170,6 +171,7 @@ var bottomNavBarList = [
   SizedBox(
     height: 40,
     child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: const [
         Icon(
           Icons.category_outlined,
@@ -185,34 +187,75 @@ var bottomNavBarList = [
       ],
     ),
   ),
+  SizedBox(
+    height: 40,
+    child: Column(
+      children: [
+        Expanded(
+          child: imageContainer(
+            25,
+            25,
+            'assets/pharmacyImages/shop_cart-removebg-preview.png',
+          ),
+        ),
+        const Expanded(
+          child: Text(
+            'Cart',
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 12,
+            ),
+          ),
+        ),
+      ],
+    ),
+  ),
 ];
 List<Widget> screens = const [
   LayOutScreen(),
   CategoryScreen(),
+  CartScreen(),
 ];
-Widget drawerItemsWidget(PharmacyItemsModel model)=> Row(
-  mainAxisAlignment: MainAxisAlignment.end,
-  children: [
-     Text(
-      model.description,
-      style:const TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 24,
-      ),
-    ),
-    imageContainer(
-      70,
-      70,
-      model.image,
-    ),
-  ],
-);
+Widget drawerItemsWidget(PharmacyItemsModel model) => Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Text(
+          model.description,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
+        imageContainer(
+          70,
+          70,
+          model.image,
+        ),
+      ],
+    );
 List<PharmacyItemsModel> drawerList = [
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'المنتجات',),
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'القسائم',),
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'الروشتات الالكترونية',),
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'طلباتك',),
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'اعدادات الحساب',),
-  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'الدعم والمساعدة',),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'المنتجات',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'القسائم',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'الروشتات الالكترونية',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'طلباتك',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'اعدادات الحساب',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/A-removebg-preview.png',
+    'الدعم والمساعدة',
+  ),
 ];
-
