@@ -10,8 +10,10 @@ Widget defaultTextFormField({
   InputBorder? border, // outline or underLine
   required String? Function(String? value) validator,
   bool? filled,
+  Function(String? value)? onSubmitted,
 }) =>
     TextFormField(
+      onFieldSubmitted: onSubmitted,
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
@@ -110,6 +112,7 @@ navigateAndFinish(context, Widget screen) {
     ),
   );
 }
+
 Widget imageContainer(double height, double width, String image) => SizedBox(
       height: height,
       width: width,
@@ -187,3 +190,29 @@ List<Widget> screens = const [
   LayOutScreen(),
   CategoryScreen(),
 ];
+Widget drawerItemsWidget(PharmacyItemsModel model)=> Row(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+     Text(
+      model.description,
+      style:const TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 24,
+      ),
+    ),
+    imageContainer(
+      70,
+      70,
+      model.image,
+    ),
+  ],
+);
+List<PharmacyItemsModel> drawerList = [
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'المنتجات',),
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'القسائم',),
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'الروشتات الالكترونية',),
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'طلباتك',),
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'اعدادات الحساب',),
+  PharmacyItemsModel('assets/pharmacyImages/A-removebg-preview.png', 'الدعم والمساعدة',),
+];
+

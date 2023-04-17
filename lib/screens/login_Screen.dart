@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/home_screen.dart';
-import 'package:pharmacy/screens/layout.dart';
 import 'package:pharmacy/screens/register_screen.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -52,6 +51,14 @@ class LoginScreen extends StatelessWidget {
                 ),
                 30.ph,
                 defaultTextFormField(
+                  onSubmitted: (String? value) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomeScreen(),
+                      ),
+                    );
+                  },
                   filled: false,
                   validator: (String? value) {
                     if (value!.isEmpty) {
