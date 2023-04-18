@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/component/helper_methods.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/home_screen.dart';
 import 'package:pharmacy/screens/register_screen.dart';
+import 'package:pharmacy/component/widgets/default_button.dart';
+import 'package:pharmacy/component/widgets/text_form_field.dart';
+
+
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -72,7 +76,7 @@ class LoginScreen extends StatelessWidget {
                 60.ph,
                 Column(
                   children: [
-                    defaultButton(
+                    DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
                           Navigator.pushReplacement(
@@ -101,7 +105,7 @@ class LoginScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              navigateTo(
+                              HelperMethods.navigateTo(
                                 context,
                                 RegisterScreen(),
                               );

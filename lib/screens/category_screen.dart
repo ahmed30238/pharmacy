@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
-
+import 'package:pharmacy/component/widgets/search_form_field.dart';
 import '../component/home_screen_component.dart/category_widget.dart';
 
 class CategoryScreen extends StatelessWidget {
@@ -28,7 +28,7 @@ class CategoryScreen extends StatelessWidget {
             children: [
               10.ph,
               SafeArea(
-                child: searchFormField(),
+                child: SearchFormField(),
               ),
               Padding(
                 padding:
@@ -37,9 +37,7 @@ class CategoryScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
-                      onTap: () {
-                        print('object');
-                      },
+                      onTap: () {},
                       child: const Text(
                         'عرض الكل',
                         style: TextStyle(
@@ -51,9 +49,10 @@ class CategoryScreen extends StatelessWidget {
                     const Text(
                       'اشتري مرة اخري',
                       style: TextStyle(
-                          fontSize: 22,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                        fontSize: 22,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -65,7 +64,7 @@ class CategoryScreen extends StatelessWidget {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) =>
-                        categoryScreenWidget(categoryList[index]),
+                        CategoryScreenWidget(model: categoryList[index]),
                     separatorBuilder: (context, index) => 15.pw,
                     itemCount: categoryList.length,
                   ),
@@ -73,7 +72,7 @@ class CategoryScreen extends StatelessWidget {
               ),
               //!تصفح الاقسام
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 child: Text(
                   'تصفح الاقسام',
                   style: TextStyle(
@@ -91,7 +90,7 @@ class CategoryScreen extends StatelessWidget {
                 children: List.generate(
                   categoryList.length,
                   (index) => CategoryWidget(
-                   model: categoryList[index],
+                    model: categoryList[index],
                   ),
                 ),
               )

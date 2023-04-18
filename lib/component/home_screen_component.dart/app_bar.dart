@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy/ex.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({Key? key}) : super(key: key);
 
   @override
@@ -15,10 +15,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
           height: 40,
           width: 40,
           child: Image(
-              image: AssetImage(
-                  'assets/pharmacyImages/shop_cart-removebg-preview.png')),
+            image: AssetImage(
+                'assets/pharmacyImages/shop_cart-removebg-preview.png'),
+          ),
         ),
-        20.pw
+        20.pw,
       ],
     );
   }
@@ -26,19 +27,3 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
 }
-
-// PreferredSizeWidget appBar() => AppBar(
-//       backgroundColor: Colors.cyan[200],
-//       elevation: 0,
-//       actions: [
-//         10.pw,
-//         const SizedBox(
-//           height: 40,
-//           width: 40,
-//           child: Image(
-//               image: AssetImage(
-//                   'assets/pharmacyImages/shop_cart-removebg-preview.png')),
-//         ),
-//         20.pw
-//       ],
-//     );

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pharmacy/component/camera_method.dart';
 import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/component/widgets/default_button.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/login_Screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:pharmacy/component/helper_methods.dart';
 
 class MyDrawer extends StatelessWidget {
   final BuildContext context;
@@ -18,7 +20,6 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      // key: ,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -70,14 +71,14 @@ class MyDrawer extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     children: List.generate(
                       drawerList.length,
-                      (index) => drawerItemsWidget(
-                        drawerList[index],
+                      (index) => DrawerItemsWidget(
+                       model: drawerList[index],
                       ),
                     ),
                   )),
                 ),
 
-                defaultButton(
+                DefaultButton(
                   onTap: () async {
                     SharedPreferences prefs =
                         await SharedPreferences.getInstance();
@@ -100,9 +101,9 @@ class MyDrawer extends StatelessWidget {
                   text: 'Show prescription',
                 ),
                 10.ph,
-                defaultButton(
+                DefaultButton(
                   onTap: () {
-                    navigateAndFinish(
+                   HelperMethods.navigateAndFinish(
                       context,
                       LoginScreen(),
                     );

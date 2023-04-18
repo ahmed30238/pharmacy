@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/component/widgets/search_form_field.dart';
 import 'package:pharmacy/component/home_screen_component.dart/card_controller.dart';
 import 'package:pharmacy/component/home_screen_component.dart/category_widget.dart';
 import 'package:pharmacy/ex.dart';
@@ -33,7 +33,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
           children: [
             //! Search TextFormField
             20.ph,
-            searchFormField(),
+           const SearchFormField(),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
