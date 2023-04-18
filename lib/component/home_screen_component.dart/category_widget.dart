@@ -39,7 +39,7 @@ Widget categoryWidget(PharmacyItemsModel model) => Column(
     );
 List<PharmacyItemsModel> categoryList = [
   PharmacyItemsModel(
-    'assets/pharmacyImages/nizoral_shampo.jpg',
+    'assets/pharmacyImages/communication.png',
     'مستلزمات',
   ),
   PharmacyItemsModel(

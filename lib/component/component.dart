@@ -1,3 +1,4 @@
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/model/model.dart';
@@ -153,62 +154,26 @@ Widget searchFormField() => Center(
       ),
     );
 var bottomNavBarList = [
-  SizedBox(
-    height: 40,
-    child: Column(
-      children: const [
-        Icon(Icons.home),
-        Text(
-          'Home',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 12,
-          ),
-        ),
-      ],
-    ),
+  const CurvedNavigationBarItem(
+    child: Icon(Icons.home),
+    label: 'Home',
   ),
-  SizedBox(
-    height: 40,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: const [
-        Icon(
+  const CurvedNavigationBarItem(
+    child:  Icon(
           Icons.category_outlined,
           color: Colors.black,
         ),
-        Text(
-          'Category',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 12,
-          ),
-        ),
-      ],
-    ),
+    label: 'Category',
   ),
-  SizedBox(
-    height: 40,
-    child: Column(
-      children: [
-        Expanded(
+  CurvedNavigationBarItem(
+    child:   Expanded(
           child: imageContainer(
             25,
             25,
             'assets/pharmacyImages/shop_cart-removebg-preview.png',
           ),
         ),
-        const Expanded(
-          child: Text(
-            'Cart',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 12,
-            ),
-          ),
-        ),
-      ],
-    ),
+    label: 'Cart',
   ),
 ];
 List<Widget> screens = const [
