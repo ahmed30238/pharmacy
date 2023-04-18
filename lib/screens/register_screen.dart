@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/component/helper_methods.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/home_screen.dart';
 import 'package:pharmacy/screens/login_Screen.dart';
+import 'package:pharmacy/component/widgets/text_form_field.dart';
+import 'package:pharmacy/component/widgets/default_button.dart';
+
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -107,10 +110,10 @@ class RegisterScreen extends StatelessWidget {
                 30.ph,
                 Column(
                   children: [
-                    defaultButton(
+                    DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          navigateAndFinish(
+                          HelperMethods.navigateAndFinish(
                             context,
                             const HomeScreen(),
                           );
@@ -134,7 +137,7 @@ class RegisterScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              navigateTo(
+                              HelperMethods.navigateTo(
                                 context,
                                 LoginScreen(),
                               );

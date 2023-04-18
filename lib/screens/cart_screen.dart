@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/component/cart_item.dart';
-import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/component/widgets/default_button.dart';
 import 'package:pharmacy/controller/get.dart';
 import 'package:pharmacy/ex.dart';
 
@@ -73,7 +73,7 @@ class CartScreen extends StatelessWidget {
             50.ph,
             Align(
               alignment: Alignment.bottomCenter,
-              child: defaultButton(
+              child: DefaultButton(
                 onTap: () {},
                 text: 'الذهاب لتنفيذ الطلبات',
               ),
