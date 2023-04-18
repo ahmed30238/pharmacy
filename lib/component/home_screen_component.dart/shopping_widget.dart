@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/model/model.dart';
 
-Widget shoppingWidget(PharmacyItemsModel model) => Column(
+class ShoppingWidget extends StatelessWidget {
+ final PharmacyItemsModel model;
+  const ShoppingWidget({Key? key,required this.model,}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
       children: [
         Container(
           width: 150,
@@ -48,6 +54,10 @@ Widget shoppingWidget(PharmacyItemsModel model) => Column(
         ),
       ],
     );
+  }
+}
+
+
 List<PharmacyItemsModel> shoppingList = [
   PharmacyItemsModel(
     'assets/pharmacyImages/aloekita.jpg',

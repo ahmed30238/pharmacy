@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/component/cart_item.dart';
 import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/controller/get.dart';
 import 'package:pharmacy/ex.dart';
 
-class CartScreen extends StatefulWidget {
-  const CartScreen({Key? key}) : super(key: key);
-
-  @override
-  State<CartScreen> createState() => _CartScreenState();
-}
-
-class _CartScreenState extends State<CartScreen> {
-
+class CartScreen extends StatelessWidget {
+  CartScreen({Key? key}) : super(key: key);
+  final controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(
+      context,
+      designSize: const Size(750, 1334),
+    );
+
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       child: Container(
@@ -42,14 +44,20 @@ class _CartScreenState extends State<CartScreen> {
                 ),
               ),
             ),
-            20.ph,
+            SizedBox(height: ScreenUtil().setHeight(10)),
             SizedBox(
-              height: 350,
+              height: ScreenUtil().setHeight(550),
               child: ListView.separated(
-                physics:const NeverScrollableScrollPhysics(),
-                itemBuilder: (context, index) => cartItem(
-                  cartList[index],
-                ),
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  for (int x = 0; x < cartList.length; x++) {
+                    controller.counters.add(0);
+                  }
+                  return CartItem(
+                    model: cartList[index],
+                    index: index,
+                  );
+                },
                 separatorBuilder: (context, index) => 10.ph,
                 itemCount: cartList.length,
               ),
@@ -63,12 +71,13 @@ class _CartScreenState extends State<CartScreen> {
               ),
             ),
             50.ph,
-
             Align(
               alignment: Alignment.bottomCenter,
-              child: defaultButton(onTap: (){}, text: 'الذهاب لتنفيذ الطلبات',),
+              child: defaultButton(
+                onTap: () {},
+                text: 'الذهاب لتنفيذ الطلبات',
+              ),
             ),
-
           ],
         ),
       ),

@@ -8,12 +8,13 @@ import 'package:pharmacy/screens/login_Screen.dart';
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 50.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Name can not be empty';
@@ -49,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: nameController,
                 ),
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Email can not be empty';
@@ -61,7 +62,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: emailController,
                 ),
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'phone can not be empty';
@@ -73,7 +74,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: phoneController,
                 ),
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Password can not be empty';
@@ -85,7 +86,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: passwordController,
                 ),
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Password can not be empty';
@@ -138,10 +139,10 @@ class RegisterScreen extends StatelessWidget {
                                 LoginScreen(),
                               );
                             },
-                            child:  Text(
+                            child: Text(
                               'login now'.toUpperCase(),
                               textAlign: TextAlign.left,
-                              style:const TextStyle(
+                              style: const TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 10,

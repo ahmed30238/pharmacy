@@ -90,8 +90,8 @@ class CategoryScreen extends StatelessWidget {
                 crossAxisCount: 2,
                 children: List.generate(
                   categoryList.length,
-                  (index) => categoryWidget(
-                    categoryList[index],
+                  (index) => CategoryWidget(
+                   model: categoryList[index],
                   ),
                 ),
               )

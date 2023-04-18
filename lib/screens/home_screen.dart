@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
       key: scaffoldKey,
       persistentFooterAlignment: AlignmentDirectional.topEnd,
       backgroundColor: Colors.cyan[200],
-      appBar: appBar(),
-      drawer: drawer(
+      appBar: const CustomAppBar(),
+      drawer: MyDrawer(
         context: context,
         scaffoldKey: scaffoldKey,
       ),
