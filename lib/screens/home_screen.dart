@@ -1,4 +1,4 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/component/home_screen_component.dart/app_bar.dart';
