@@ -48,8 +48,8 @@ class CategoryWidget extends StatelessWidget {
 
 List<PharmacyItemsModel> categoryList = [
   PharmacyItemsModel(
-    'assets/pharmacyImages/communication.png',
-    'مستلزمات',
+    'assets/pharmacyImages/pngtree-cigarette-png-image_7076252.png',
+    'أدوية للاقلاع عن التدخين',
   ),
   PharmacyItemsModel(
     'assets/pharmacyImages/mother_baby.jpg',
@@ -58,5 +58,31 @@ List<PharmacyItemsModel> categoryList = [
   PharmacyItemsModel(
     'assets/pharmacyImages/sale.jpg',
     'العروض',
+  ),
+];
+List<PharmacyItemsModel> browseCaegoryList = [
+  PharmacyItemsModel(
+    'assets/pharmacyImages/Coronavirus-EN-2_2.png',
+    'البرد والسعال',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/vitamines.jpg',
+    'الفيتامينات والمكملات الغذائية',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/pngtree_woman_with_dollar_banknote_on_mouth_png_image_8800314.png',
+    'عناية الفم',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/th.jpg',
+    'مضادات حبوب موضعية',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/pngtree-sugar-vector-png-image_8229521.png',
+    'ادية مرض السكر',
+  ),
+  PharmacyItemsModel(
+    'assets/pharmacyImages/29-1.png',
+    'مستحضرات تجميل',
   ),
 ];
