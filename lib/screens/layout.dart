@@ -31,7 +31,6 @@ class _LayOutScreenState extends State<LayOutScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-
             //! Search TextFormField
             20.ph,
             searchFormField(),
@@ -43,7 +42,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
               ),
             ),
             //!row اطلب ادوية
-            askForMedication(context),
+            AskForMedication(context:context),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               child: Text(
@@ -55,7 +54,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
             ),
 
             //!كارت التامين
-            cardsController(),
+            const CardsController(),
             //! two texts
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -86,8 +85,9 @@ class _LayOutScreenState extends State<LayOutScreen> {
                 height: 220,
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) =>
-                      shoppingWidget(shoppingList[index]),
+                  itemBuilder: (context, index) => ShoppingWidget(
+                    model: shoppingList[index],
+                  ),
                   separatorBuilder: (context, index) => 15.pw,
                   itemCount: shoppingList.length,
                 ),
@@ -101,7 +101,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) =>
-                      categoryWidget(categoryList[index]),
+                      CategoryWidget(model: categoryList[index]),
                   separatorBuilder: (context, index) => 15.pw,
                   itemCount: categoryList.length,
                 ),

@@ -38,7 +38,7 @@ class LoginScreen extends StatelessWidget {
                 ),
                 50.ph,
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Email can not be empty';
@@ -50,7 +50,7 @@ class LoginScreen extends StatelessWidget {
                   controller: emailController,
                 ),
                 30.ph,
-                defaultTextFormField(
+                DefaultTextFormField(
                   onSubmitted: (String? value) {
                     Navigator.pushReplacement(
                       context,

@@ -6,15 +6,26 @@ import 'package:pharmacy/screens/cart_screen.dart';
 import 'package:pharmacy/screens/category_screen.dart';
 import 'package:pharmacy/screens/layout.dart';
 
-Widget defaultTextFormField({
-  TextEditingController? controller,
-  String? labelText,
-  InputBorder? border, // outline or underLine
-  required String? Function(String? value) validator,
-  bool? filled,
-  Function(String? value)? onSubmitted,
-}) =>
-    TextFormField(
+class DefaultTextFormField extends StatelessWidget {
+  final TextEditingController? controller;
+  final String? labelText;
+  final InputBorder? border; // outline or underLine
+  final String? Function(String? value) validator;
+  final bool? filled;
+  final Function(String? value)? onSubmitted;
+  const DefaultTextFormField({
+    Key? key,
+    this.controller,
+    required this.validator,
+    this.filled,
+    this.labelText,
+    this.onSubmitted,
+    this.border,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
       onFieldSubmitted: onSubmitted,
       validator: validator,
       controller: controller,
@@ -27,6 +38,8 @@ Widget defaultTextFormField({
         labelText: labelText,
       ),
     );
+  }
+}
 
 Widget defaultButton({
   required Function() onTap,
@@ -159,26 +172,26 @@ var bottomNavBarList = [
     label: 'Home',
   ),
   const CurvedNavigationBarItem(
-    child:  Icon(
-          Icons.category_outlined,
-          color: Colors.black,
-        ),
+    child: Icon(
+      Icons.category_outlined,
+      color: Colors.black,
+    ),
     label: 'Category',
   ),
   CurvedNavigationBarItem(
-    child:   Expanded(
-          child: imageContainer(
-            25,
-            25,
-            'assets/pharmacyImages/shop_cart-removebg-preview.png',
-          ),
-        ),
+    child: Expanded(
+      child: imageContainer(
+        25,
+        25,
+        'assets/pharmacyImages/shop_cart-removebg-preview.png',
+      ),
+    ),
     label: 'Cart',
   ),
 ];
-List<Widget> screens = const [
-  LayOutScreen(),
-  CategoryScreen(),
+List<Widget> screens =  [
+  const LayOutScreen(),
+  const CategoryScreen(),
   CartScreen(),
 ];
 Widget drawerItemsWidget(PharmacyItemsModel model) => Row(

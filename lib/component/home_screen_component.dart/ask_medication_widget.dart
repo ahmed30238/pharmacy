@@ -4,7 +4,13 @@ import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Widget askForMedication(context) => Padding(
+class AskForMedication extends StatelessWidget {
+  final BuildContext context;
+  const AskForMedication({Key? key,required this.context,}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: SizedBox(
         height: 120,
@@ -16,7 +22,7 @@ Widget askForMedication(context) => Padding(
                 onTap: () {
                   getPrescribeImage().then((value) async {
                     SharedPreferences prefs =
-                        await SharedPreferences.getInstance();
+                    await SharedPreferences.getInstance();
                     prefs.setBool(
                       'prescribeImage',
                       true,
@@ -92,3 +98,6 @@ Widget askForMedication(context) => Padding(
         ),
       ),
     );
+  }
+}
+

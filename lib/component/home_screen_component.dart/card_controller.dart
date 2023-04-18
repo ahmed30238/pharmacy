@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
 
-Widget cardsController() => Padding(
+
+class CardsController extends StatelessWidget {
+  const CardsController({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: SizedBox(
         height: 120,
@@ -106,3 +112,7 @@ Widget cardsController() => Padding(
         ),
       ),
     );
+  }
+}
+
+

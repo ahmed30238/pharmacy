@@ -5,11 +5,19 @@ import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/login_Screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Widget drawer({
-  context,
-  GlobalKey<ScaffoldState>? scaffoldKey,
-}) =>
-    Drawer(
+class MyDrawer extends StatelessWidget {
+  final BuildContext context;
+  final GlobalKey<ScaffoldState>? scaffoldKey;
+
+  const MyDrawer({
+    Key? key,
+    required this.context,
+    this.scaffoldKey,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
       // key: ,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -108,3 +116,5 @@ Widget drawer({
         ],
       ),
     );
+  }
+}
