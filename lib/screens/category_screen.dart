@@ -88,9 +88,9 @@ class CategoryScreen extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
                 children: List.generate(
-                  categoryList.length,
+                  browseCaegoryList.length,
                   (index) => CategoryWidget(
-                    model: categoryList[index],
+                    model: browseCaegoryList[index],
                   ),
                 ),
               )
