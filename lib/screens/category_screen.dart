@@ -27,7 +27,7 @@ class CategoryScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               10.ph,
-              SafeArea(
+              const SafeArea(
                 child: SearchFormField(),
               ),
               Padding(

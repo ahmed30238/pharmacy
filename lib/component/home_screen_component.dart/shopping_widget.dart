@@ -32,7 +32,9 @@ class ShoppingWidget extends StatelessWidget {
         ),
         5.ph,
         InkWell(
-          onTap: (){},
+          onTap: (){
+            // shoppingList.add(PharmacyItemsModel( 'assets/pharmacyImages/aloekita.jpg' ,'تم'));
+          },
           child: Container(
             width: 80,
             height: 30,

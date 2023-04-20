@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/helper_methods.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/screens/home_screen.dart';
-import 'package:pharmacy/screens/register_screen.dart';
 import 'package:pharmacy/component/widgets/default_button.dart';
 import 'package:pharmacy/component/widgets/text_form_field.dart';
+import 'package:pharmacy/shared/routing.dart';
+
+import '../controller/get.dart';
 
 
 
@@ -17,6 +19,7 @@ class LoginScreen extends StatelessWidget {
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  Controller controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -79,12 +82,7 @@ class LoginScreen extends StatelessWidget {
                     DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const HomeScreen(),
-                            ),
-                          );
+                          Get.offNamed(HomeRouting.config().path);
                         }
                       },
                       text: 'Log in',
@@ -105,10 +103,7 @@ class LoginScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              HelperMethods.navigateTo(
-                                context,
-                                RegisterScreen(),
-                              );
+                              Get.toNamed(RegisterRouting.config().path);
                             },
                             child: const Text(
                               'register',
