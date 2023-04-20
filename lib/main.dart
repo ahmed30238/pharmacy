@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:pharmacy/screens/splash_screen.dart';
+import 'package:get/get.dart';
+import 'package:pharmacy/shared/init_bindings.dart';
+import 'package:pharmacy/shared/routing.dart';
 
 void main() {
-
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  InitBinding().dependencies();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
+  List<GetPage> getPagesList = [
+    SplashRouting.config().page,
+    LoginRouting.config().page,
+    RegisterRouting.config().page,
+    LayoutRouting.config().page,
+    HomeRouting.config().page
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +28,11 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         designSize: const Size(393, 852),
         builder: (context, child) {
-          return const GetMaterialApp(
+          return GetMaterialApp(
+            getPages: getPagesList,
             debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
+            initialBinding: InitBinding(),
+            initialRoute: SplashRouting.config().path,
           );
         });
   }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'package:pharmacy/component/helper_methods.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/screens/home_screen.dart';
-import 'package:pharmacy/screens/login_Screen.dart';
 import 'package:pharmacy/component/widgets/text_form_field.dart';
 import 'package:pharmacy/component/widgets/default_button.dart';
+import 'package:pharmacy/shared/routing.dart';
+
+import '../controller/get.dart';
 
 
 class RegisterScreen extends StatelessWidget {
@@ -18,6 +18,9 @@ class RegisterScreen extends StatelessWidget {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  Controller controller = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -113,10 +116,7 @@ class RegisterScreen extends StatelessWidget {
                     DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          HelperMethods.navigateAndFinish(
-                            context,
-                            const HomeScreen(),
-                          );
+                          Get.offNamed(HomeRouting.config().path);
                         }
                       },
                       text: 'Register',
@@ -137,10 +137,7 @@ class RegisterScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              HelperMethods.navigateTo(
-                                context,
-                                LoginScreen(),
-                              );
+                              Get.toNamed(LoginRouting.config().path);
                             },
                             child: Text(
                               'login now'.toUpperCase(),

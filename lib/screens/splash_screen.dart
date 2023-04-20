@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/screens/login_Screen.dart';
 import 'package:pharmacy/component/component.dart';
+import 'package:pharmacy/shared/routing.dart';
+
+import '../controller/get.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -14,9 +17,11 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+
   AnimationController? animationController;
 
   Animation<double>? animation;
+  Controller controller = Get.find();
 
   startTime() async {
     var duration = const Duration(seconds: 1);
@@ -24,12 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void navigator() {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => LoginScreen(),
-      ),
-    );
+    Get.offAllNamed(LoginRouting.config().path);
   }
 
   @override

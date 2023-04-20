@@ -14,7 +14,8 @@ class CartItem extends StatelessWidget {
 
   CartItem({Key? key, required this.model, required this.index})
       : super(key: key);
-  Controller controller = Get.find();
+  // Controller controller = Get.find();
+  Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(
