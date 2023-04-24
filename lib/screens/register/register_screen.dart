@@ -1,42 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/screens/home_screen.dart';
-import 'package:pharmacy/component/widgets/default_button.dart';
-import 'package:pharmacy/component/widgets/text_form_field.dart';
 import 'package:pharmacy/shared/routing.dart';
 
-import '../controller/get.dart';
+import '../../controller/get.dart';
+import '../../shared/widgets/default_button.dart';
+import '../../shared/widgets/text_form_field.dart';
 
 
+class RegisterScreen extends StatelessWidget {
+  RegisterScreen({super.key});
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Controller controller = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 60),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Form(
           key: formKey,
           child: SingleChildScrollView(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                150.ph,
+                30.ph,
                 SafeArea(
                   child: Text(
-                    'Log In'.toUpperCase(),
+                    'Register Now'.toUpperCase(),
                     style: const TextStyle(
                         fontSize: 39,
                         color: Colors.red,
@@ -44,6 +44,17 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 50.ph,
+                DefaultTextFormField(
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
+                      return 'Name can not be empty';
+                    }
+                    return null;
+                  },
+                  labelText: 'Name',
+                  border: const UnderlineInputBorder(),
+                  controller: nameController,
+                ),
                 30.ph,
                 DefaultTextFormField(
                   validator: (String? value) {
@@ -58,15 +69,18 @@ class LoginScreen extends StatelessWidget {
                 ),
                 30.ph,
                 DefaultTextFormField(
-                  onSubmitted: (String? value) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomeScreen(),
-                      ),
-                    );
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
+                      return 'phone can not be empty';
+                    }
+                    return null;
                   },
-                  filled: false,
+                  labelText: 'Phone Number',
+                  border: const UnderlineInputBorder(),
+                  controller: phoneController,
+                ),
+                30.ph,
+                DefaultTextFormField(
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Password can not be empty';
@@ -74,18 +88,38 @@ class LoginScreen extends StatelessWidget {
                     return null;
                   },
                   labelText: 'Password',
+                  border: const UnderlineInputBorder(),
                   controller: passwordController,
                 ),
-                60.ph,
+                30.ph,
+                DefaultTextFormField(
+                  validator: (String? value) {
+                    if (value!.isEmpty) {
+                      return 'Password can not be empty';
+                    } else if (passwordController.text !=
+                        confirmPasswordController.text) {
+                      return 'password does not match';
+                    }
+                    return null;
+                  },
+                  labelText: 'Confirm Password',
+                  border: const UnderlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.red,
+                    ),
+                  ),
+                  controller: confirmPasswordController,
+                ),
+                30.ph,
                 Column(
                   children: [
                     DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          Get.offNamed(HomeRouting.config().path);
+                          Get.offNamed(LayoutRouting.config().path);
                         }
                       },
-                      text: 'Log in',
+                      text: 'Register',
                       fontWeight: FontWeight.bold,
                     ),
                     15.ph,
@@ -103,16 +137,16 @@ class LoginScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              Get.toNamed(RegisterRouting.config().path);
+                              Get.toNamed(LoginRouting.config().path);
                             },
-                            child: const Text(
-                              'register',
-                              style: TextStyle(
+                            child: Text(
+                              'login now'.toUpperCase(),
+                              textAlign: TextAlign.left,
+                              style: const TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 10,
                               ),
-                              textAlign: TextAlign.left,
                             ),
                           ),
                         ),

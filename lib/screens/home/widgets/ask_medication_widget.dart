@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/camera_method.dart';
-import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../shared/methods.dart';
+import '../../../shared/widgets/my_image_container.dart';
 
 class AskForMedication extends StatelessWidget {
   final BuildContext context;
@@ -50,11 +50,11 @@ class AskForMedication extends StatelessWidget {
                         ),
                       ),
                       5.pw,
-                      Expanded(
-                        child: imageContainer(
-                          40,
-                          40,
-                          'assets/pharmacyImages/note-removebg-preview.png',
+                     const Expanded(
+                        child: ImageContainer(
+                         height: 40,
+                         width: 40,
+                         image: 'assets/pharmacyImages/note-removebg-preview.png',
                         ),
                       ),
                     ],
@@ -86,9 +86,9 @@ class AskForMedication extends StatelessWidget {
                       ),
                     ),
                     5.pw,
-                    Expanded(
-                      child: imageContainer(40, 40,
-                          'assets/pharmacyImages/medicine-removebg-preview.png'),
+                   const Expanded(
+                      child: ImageContainer(height:40,width: 40,
+                        image:  'assets/pharmacyImages/medicine-removebg-preview.png'),
                     ),
                   ],
                 ),

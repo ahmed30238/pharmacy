@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/widgets/search_form_field.dart';
-import 'package:pharmacy/component/home_screen_component.dart/card_controller.dart';
-import 'package:pharmacy/component/home_screen_component.dart/category_widget.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import '../component/home_screen_component.dart/ask_medication_widget.dart';
-import '../component/home_screen_component.dart/shopping_widget.dart';
+import 'package:pharmacy/screens/home/widgets/ask_medication_widget.dart';
+import 'package:pharmacy/screens/home/widgets/card_controller.dart';
+import 'package:pharmacy/screens/home/widgets/category_widget.dart';
+import 'package:pharmacy/screens/home/widgets/shopping_widget.dart';
+import '../../controller/get.dart';
+import '../../shared/widgets/search_form_field.dart';
 
-class LayOutScreen extends StatefulWidget {
-  const LayOutScreen({super.key});
+
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<LayOutScreen> createState() => _LayOutScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _LayOutScreenState extends State<LayOutScreen> {
+class _HomeScreenState extends State<HomeScreen> {
+  Controller controller = Get.find();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

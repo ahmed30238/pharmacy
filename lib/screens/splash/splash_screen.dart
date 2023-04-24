@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/shared/routing.dart';
-
-import '../controller/get.dart';
+import '../../controller/get.dart';
+import '../../shared/widgets/my_image_container.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -65,9 +63,9 @@ class _SplashScreenState extends State<SplashScreen>
               children: [
                 RotationTransition(
                   turns: animation!,
-                  child: Center(
-                    child: imageContainer(200, 200,
-                        'assets/pharmacyImages/logo-removebg-preview.png'),
+                  child:const Center(
+                    child: ImageContainer(height:200,width: 200,image:
+                        'assets/pharmacyImages/logo-removebg-preview.png',),
                   ),
                 ),
                 const Center(
@@ -106,10 +104,10 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                     ),
                     10.pw,
-                    imageContainer(
-                      60,
-                      60,
-                      'assets/pharmacyImages/true-removebg-preview.png',
+                    const ImageContainer(
+                     height: 60,
+                     width: 60,
+                     image: 'assets/pharmacyImages/true-removebg-preview.png',
                     ),
                   ],
                 ),
@@ -133,7 +131,7 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                     ),
                     10.pw,
-                    imageContainer(60, 60,
+                   const ImageContainer(height:60,width: 60,image:
                         'assets/pharmacyImages/true-removebg-preview.png'),
                   ],
                 ),

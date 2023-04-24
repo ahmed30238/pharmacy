@@ -1,42 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/component/widgets/text_form_field.dart';
-import 'package:pharmacy/component/widgets/default_button.dart';
 import 'package:pharmacy/shared/routing.dart';
 
-import '../controller/get.dart';
+import '../../controller/get.dart';
+import '../../shared/widgets/default_button.dart';
+import '../../shared/widgets/text_form_field.dart';
 
 
-class RegisterScreen extends StatelessWidget {
-  RegisterScreen({super.key});
 
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
+  TextEditingController nameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  GlobalKey<FormState> formKey = GlobalKey<FormState>();
   Controller controller = Get.find();
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 60),
         child: Form(
           key: formKey,
           child: SingleChildScrollView(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                30.ph,
+                150.ph,
                 SafeArea(
                   child: Text(
-                    'Register Now'.toUpperCase(),
+                    'Log In'.toUpperCase(),
                     style: const TextStyle(
                         fontSize: 39,
                         color: Colors.red,
@@ -44,17 +43,6 @@ class RegisterScreen extends StatelessWidget {
                   ),
                 ),
                 50.ph,
-                DefaultTextFormField(
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'Name can not be empty';
-                    }
-                    return null;
-                  },
-                  labelText: 'Name',
-                  border: const UnderlineInputBorder(),
-                  controller: nameController,
-                ),
                 30.ph,
                 DefaultTextFormField(
                   validator: (String? value) {
@@ -69,18 +57,10 @@ class RegisterScreen extends StatelessWidget {
                 ),
                 30.ph,
                 DefaultTextFormField(
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'phone can not be empty';
-                    }
-                    return null;
+                  onSubmitted: (String? value) {
+                    Get.offNamed(LayoutRouting.config().path);
                   },
-                  labelText: 'Phone Number',
-                  border: const UnderlineInputBorder(),
-                  controller: phoneController,
-                ),
-                30.ph,
-                DefaultTextFormField(
+                  filled: false,
                   validator: (String? value) {
                     if (value!.isEmpty) {
                       return 'Password can not be empty';
@@ -88,38 +68,18 @@ class RegisterScreen extends StatelessWidget {
                     return null;
                   },
                   labelText: 'Password',
-                  border: const UnderlineInputBorder(),
                   controller: passwordController,
                 ),
-                30.ph,
-                DefaultTextFormField(
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return 'Password can not be empty';
-                    } else if (passwordController.text !=
-                        confirmPasswordController.text) {
-                      return 'password does not match';
-                    }
-                    return null;
-                  },
-                  labelText: 'Confirm Password',
-                  border: const UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Colors.red,
-                    ),
-                  ),
-                  controller: confirmPasswordController,
-                ),
-                30.ph,
+                60.ph,
                 Column(
                   children: [
                     DefaultButton(
                       onTap: () {
                         if (formKey.currentState!.validate()) {
-                          Get.offNamed(HomeRouting.config().path);
+                          Get.offNamed(LayoutRouting.config().path);
                         }
                       },
-                      text: 'Register',
+                      text: 'Log in',
                       fontWeight: FontWeight.bold,
                     ),
                     15.ph,
@@ -137,16 +97,16 @@ class RegisterScreen extends StatelessWidget {
                         Expanded(
                           child: InkWell(
                             onTap: () {
-                              Get.toNamed(LoginRouting.config().path);
+                              Get.toNamed(RegisterRouting.config().path);
                             },
-                            child: Text(
-                              'login now'.toUpperCase(),
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
+                            child: const Text(
+                              'register',
+                              style: TextStyle(
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 10,
+                                fontSize: 14,
                               ),
+                              textAlign: TextAlign.left,
                             ),
                           ),
                         ),

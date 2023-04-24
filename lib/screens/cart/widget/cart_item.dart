@@ -6,7 +6,7 @@ import 'package:pharmacy/controller/get.dart';
 import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/model/model.dart';
 
-import 'component.dart';
+import '../../../shared/widgets/my_image_container.dart';
 
 class CartItem extends StatelessWidget {
   final PharmacyItemsModel model;
@@ -133,10 +133,10 @@ class CartItem extends StatelessWidget {
               ),
               10.pw,
               Expanded(
-                child: imageContainer(
-                  120,
-                  30,
-                  model.image,
+                child: ImageContainer(
+                 height: 120,
+                 width: 30,
+               image:   model.image,
                 ),
               ),
             ],

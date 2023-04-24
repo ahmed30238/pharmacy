@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pharmacy/component/cart_item.dart';
-import 'package:pharmacy/component/widgets/default_button.dart';
+import 'package:pharmacy/screens/cart/widget/cart_item.dart';
 import 'package:pharmacy/controller/get.dart';
 import 'package:pharmacy/ex.dart';
+
+import '../../shared/widgets/default_button.dart';
 
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);

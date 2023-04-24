@@ -19,5 +19,3 @@ Future<void> getPrescribeImage() async {
     }
   }
 }
-
-

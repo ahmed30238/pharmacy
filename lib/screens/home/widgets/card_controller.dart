@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
-
+import '../../../shared/widgets/my_image_container.dart';
 
 class CardsController extends StatelessWidget {
   const CardsController({Key? key}) : super(key: key);
@@ -76,11 +75,11 @@ class CardsController extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Center(
-                  child: imageContainer(
-                    90,
-                    90,
-                    'assets/pharmacyImages/A-removebg-preview.png',
+                child: const Center(
+                  child: ImageContainer(
+                    height: 90,
+                    width: 90,
+                    image: 'assets/pharmacyImages/A-removebg-preview.png',
                   ),
                 ),
               ),
@@ -114,5 +113,3 @@ class CardsController extends StatelessWidget {
     );
   }
 }
-
-

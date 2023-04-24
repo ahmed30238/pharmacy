@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/camera_method.dart';
-import 'package:pharmacy/component/component.dart';
-import 'package:pharmacy/component/widgets/default_button.dart';
+import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/screens/login_Screen.dart';
+import 'package:pharmacy/screens/home/widgets/drawer/widgets.dart';
+import 'package:pharmacy/shared/routing.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:pharmacy/component/helper_methods.dart';
+import '../../../../controller/get.dart';
+import '../../../../shared/methods.dart';
+import '../../../../shared/widgets/default_button.dart';
+import 'drawer_list.dart';
+
 
 class MyDrawer extends StatelessWidget {
+  final controller = Get.put(Controller());
+  // final controller  = Get.find();
   final BuildContext context;
   final GlobalKey<ScaffoldState>? scaffoldKey;
+  
 
-  const MyDrawer({
+   MyDrawer({
     Key? key,
     required this.context,
     this.scaffoldKey,
@@ -103,10 +109,7 @@ class MyDrawer extends StatelessWidget {
                 10.ph,
                 DefaultButton(
                   onTap: () {
-                   HelperMethods.navigateAndFinish(
-                      context,
-                      LoginScreen(),
-                    );
+                    Get.toNamed(LoginRouting.config().path);
                   },
                   text: 'log out',
                 ),
