@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pharmacy/component/component.dart';
 import 'package:pharmacy/ex.dart';
-import 'package:pharmacy/component/widgets/search_form_field.dart';
-import '../component/home_screen_component.dart/category_widget.dart';
+import 'package:pharmacy/screens/category/widgets/cat_widget.dart';
+
+import '../../shared/widgets/search_form_field.dart';
+import '../home/widgets/category_widget.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key});
