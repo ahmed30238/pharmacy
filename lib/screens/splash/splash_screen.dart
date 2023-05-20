@@ -89,7 +89,7 @@ class _SplashScreenState extends State<SplashScreen>
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Expanded(
@@ -100,7 +100,7 @@ class _SplashScreenState extends State<SplashScreen>
                           fontSize: 27,
                           fontWeight: FontWeight.bold,
                         ),
-                        textAlign: TextAlign.end,
+                        // textAlign: TextAlign.end,
                       ),
                     ),
                     10.pw,
@@ -109,14 +109,14 @@ class _SplashScreenState extends State<SplashScreen>
                      width: 60,
                      image: 'assets/pharmacyImages/true-removebg-preview.png',
                     ),
-                  ],
+                  ].reversed.toList(),
                 ),
               ),
               15.ph,
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Expanded(
                       flex: 4,
@@ -127,13 +127,13 @@ class _SplashScreenState extends State<SplashScreen>
                           fontSize: 27,
                           fontWeight: FontWeight.bold,
                         ),
-                        textAlign: TextAlign.end,
+                        // textAlign: TextAlign.end,
                       ),
                     ),
                     10.pw,
                    const ImageContainer(height:60,width: 60,image:
                         'assets/pharmacyImages/true-removebg-preview.png'),
-                  ],
+                  ].reversed.toList(),
                 ),
               ),
             ],
