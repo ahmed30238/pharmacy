@@ -75,12 +75,10 @@ class CardsController extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Center(
-                  child: ImageContainer(
-                    height: 90,
-                    width: 90,
-                    image: 'assets/pharmacyImages/A-removebg-preview.png',
-                  ),
+                child: ImageContainer(
+                  height: 90,
+                  width: 90,
+                  image: 'assets/pharmacyImages/A-removebg-preview.png',
                 ),
               ),
             ),

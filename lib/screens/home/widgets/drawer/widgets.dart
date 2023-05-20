@@ -12,7 +12,7 @@ class DrawerItemsWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text(
             model.description,
@@ -29,7 +29,7 @@ class DrawerItemsWidget extends StatelessWidget {
             width: 31,
             image: model.image,
           ),
-        ],
+        ].reversed.toList(),
       ),
     );
   }

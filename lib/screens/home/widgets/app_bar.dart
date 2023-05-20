@@ -12,11 +12,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         10.pw,
         const SizedBox(
-          height: 40,
-          width: 40,
+          height: 25,
+          width: 25,
           child: Image(
+            color: Colors.white,
             image: AssetImage(
-                'assets/pharmacyImages/shop_cart-removebg-preview.png'),
+              'assets/pharmacyImages/shop_cart-removebg-preview.png',
+            ),
           ),
         ),
         20.pw,

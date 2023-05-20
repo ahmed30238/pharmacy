@@ -29,17 +29,17 @@ class MyDrawer extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Expanded(
+          const Expanded(
             flex: 2,
             child: SafeArea(
               child: SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
                       Text(
                         'مرحبا',
                         style: TextStyle(

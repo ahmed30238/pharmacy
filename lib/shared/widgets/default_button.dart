@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DefaultButton extends StatelessWidget {
   final Function() onTap;
   double? height = 52;
@@ -26,19 +27,19 @@ class DefaultButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: height??52,
-        width: width??227,
+        height: height ?? 52,
+        width: width ?? 227,
         decoration: BoxDecoration(
-          color: color??Colors.red,
+          color: color ?? Colors.red,
           borderRadius: BorderRadius.circular(15),
         ),
         child: Center(
           child: Text(
             text,
             style: TextStyle(
-              color: textColor??Colors.white,
-              fontWeight: fontWeight??FontWeight.bold,
-              fontSize: fontSize??20,
+              color: textColor ?? Colors.white,
+              fontWeight: fontWeight ?? FontWeight.bold,
+              fontSize: fontSize ?? 20,
             ),
           ),
         ),

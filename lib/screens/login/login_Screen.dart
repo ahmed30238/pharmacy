@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
@@ -7,18 +8,33 @@ import '../../controller/get.dart';
 import '../../shared/widgets/default_button.dart';
 import '../../shared/widgets/text_form_field.dart';
 
-
-
-class LoginScreen extends StatelessWidget {
+// ignore: must_be_immutable
+class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController nameController = TextEditingController();
+
   TextEditingController phoneController = TextEditingController();
+
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
+
   TextEditingController confirmPasswordController = TextEditingController();
-  GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   Controller controller = Get.find();
+  @override
+  void dispose() {
+    _formKey.currentState?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +42,7 @@ class LoginScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 60),
         child: Form(
-          key: formKey,
+          key: _formKey,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +91,7 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     DefaultButton(
                       onTap: () {
-                        if (formKey.currentState!.validate()) {
+                        if (_formKey.currentState!.validate()) {
                           Get.offNamed(LayoutRouting.config().path);
                         }
                       },
@@ -83,34 +99,27 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                     15.ph,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Expanded(
-                          flex: 3,
-                          child: Text(
-                            'Already have an account?',
-                            textAlign: TextAlign.right,
-                          ),
+                    RichText(
+                      text: TextSpan(
+                        text: "Already have an account?  ",
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
                         ),
-                        5.pw,
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              Get.toNamed(RegisterRouting.config().path);
-                            },
-                            child: const Text(
-                              'register',
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
-                              ),
-                              textAlign: TextAlign.left,
+                        children: [
+                          TextSpan(
+                            text: 'register',
+                            style: const TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () =>
+                                  Get.toNamed(RegisterRouting.config().path),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -25,11 +25,14 @@ class CategoryScreen extends StatelessWidget {
             ),
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               10.ph,
               const SafeArea(
-                child: SearchFormField(),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 25),
+                  child: SearchFormField(),
+                ),
               ),
               Padding(
                 padding:
@@ -55,7 +58,7 @@ class CategoryScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ],
+                  ].reversed.toList(),
                 ),
               ),
               Padding(

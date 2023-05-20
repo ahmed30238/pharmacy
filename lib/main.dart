@@ -10,6 +10,7 @@ void main() {
   runApp(MyApp());
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(393, 852),
         builder: (context, child) {
           return GetMaterialApp(
+            locale: const Locale('ar'),
             getPages: getPagesList,
             debugShowCheckedModeBanner: false,
             initialBinding: InitBinding(),

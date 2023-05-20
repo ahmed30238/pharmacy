@@ -5,8 +5,9 @@ import '../../../shared/methods.dart';
 import '../../../shared/widgets/my_image_container.dart';
 
 class AskForMedication extends StatelessWidget {
-  final BuildContext context;
-  const AskForMedication({Key? key,required this.context,}) : super(key: key);
+  const AskForMedication({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class AskForMedication extends StatelessWidget {
                 onTap: () {
                   getPrescribeImage().then((value) async {
                     SharedPreferences prefs =
-                    await SharedPreferences.getInstance();
+                        await SharedPreferences.getInstance();
                     prefs.setBool(
                       'prescribeImage',
                       true,
@@ -35,29 +36,31 @@ class AskForMedication extends StatelessWidget {
                     color: Colors.cyan[200],
                     borderRadius: BorderRadius.circular(20),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Expanded(
-                        flex: 2,
-                        child: Text(
-                          'صور الروشتة',
-                          textAlign: TextAlign.right,
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Expanded(
+                          flex: 2,
+                          child: Text(
+                            'صور الروشتة',
+                            // textAlign: TextAlign.right,
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue),
+                          ),
                         ),
-                      ),
-                      5.pw,
-                     const Expanded(
-                        child: ImageContainer(
-                         height: 40,
-                         width: 40,
-                         image: 'assets/pharmacyImages/note-removebg-preview.png',
+                        5.pw,
+                        const ImageContainer(
+                          height: 40,
+                          width: 40,
+                          image:
+                              'assets/pharmacyImages/note-removebg-preview.png',
                         ),
-                      ),
-                    ],
+                      ].reversed.toList(),
+                    ),
                   ),
                 ),
               ),
@@ -70,27 +73,31 @@ class AskForMedication extends StatelessWidget {
                   color: Colors.cyan[200],
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    const Expanded(
-                      flex: 2,
-                      child: Text(
-                        'ابحث عن ادوية',
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Expanded(
+                        flex: 2,
+                        child: Text(
+                          'ابحث عن ادوية',
+                          // textAlign: TextAlign.right,
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
                         ),
                       ),
-                    ),
-                    5.pw,
-                   const Expanded(
-                      child: ImageContainer(height:40,width: 40,
-                        image:  'assets/pharmacyImages/medicine-removebg-preview.png'),
-                    ),
-                  ],
+                      5.pw,
+                      const ImageContainer(
+                          height: 40,
+                          width: 40,
+                          image:
+                              'assets/pharmacyImages/medicine-removebg-preview.png'),
+                    ].reversed.toList(),
+                  ),
                 ),
               ),
             ),
@@ -100,4 +107,3 @@ class AskForMedication extends StatelessWidget {
     );
   }
 }
-

@@ -2,7 +2,6 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:pharmacy/controller/get.dart';
 import 'package:pharmacy/screens/home/home.dart';
 import '../../shared/widgets/my_image_container.dart';
@@ -35,12 +34,10 @@ class _LayoutScreenState extends State<LayoutScreen> {
       label: 'Category',
     ),
     const CurvedNavigationBarItem(
-      child: Expanded(
-        child: ImageContainer(
-          height: 25,
-          width:  25,
-          image: 'assets/pharmacyImages/shop_cart-removebg-preview.png',
-        ),
+      child: ImageContainer(
+        height: 25,
+        width:  25,
+        image: 'assets/pharmacyImages/shop_cart-removebg-preview.png',
       ),
       label: 'Cart',
     ),

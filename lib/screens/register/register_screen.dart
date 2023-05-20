@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pharmacy/ex.dart';
@@ -7,20 +8,37 @@ import '../../controller/get.dart';
 import '../../shared/widgets/default_button.dart';
 import '../../shared/widgets/text_form_field.dart';
 
+// ignore: must_be_immutable
+class RegisterScreen extends StatefulWidget {
 
-class RegisterScreen extends StatelessWidget {
+  
   RegisterScreen({super.key});
 
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+
+  @override
+  void dispose() {
+    formKey.currentState?.dispose();
+    super.dispose();
+  }
   final TextEditingController nameController = TextEditingController();
+
   final TextEditingController phoneController = TextEditingController();
+
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Controller controller = Get.find();
-
 
   @override
   Widget build(BuildContext context) {
@@ -123,34 +141,27 @@ class RegisterScreen extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                     15.ph,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Expanded(
-                          flex: 3,
-                          child: Text(
-                            'Already have an account?',
-                            textAlign: TextAlign.right,
-                          ),
+                    RichText(
+                      text: TextSpan(
+                        text: 'Already have an account?  ',
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 14,
                         ),
-                        5.pw,
-                        Expanded(
-                          child: InkWell(
-                            onTap: () {
-                              Get.toNamed(LoginRouting.config().path);
-                            },
-                            child: Text(
-                              'login now'.toUpperCase(),
-                              textAlign: TextAlign.left,
-                              style: const TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 10,
-                              ),
+                        children: [
+                          TextSpan(
+                            text: 'login now'.toUpperCase(),
+                            style: const TextStyle(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap =
+                                  () => Get.toNamed(LoginRouting.config().path),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

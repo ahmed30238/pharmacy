@@ -8,6 +8,7 @@ import 'package:pharmacy/model/model.dart';
 
 import '../../../shared/widgets/my_image_container.dart';
 
+// ignore: must_be_immutable
 class CartItem extends StatelessWidget {
   final PharmacyItemsModel model;
   final int index;
@@ -18,10 +19,10 @@ class CartItem extends StatelessWidget {
   Controller controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {
-    ScreenUtil.init(
-      context,
-      designSize: const Size(750, 1334),
-    );
+    // ScreenUtil.init(
+    //   context,
+    //   designSize: const Size(750, 1334),
+    // );
      return  Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
