@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void navigator() {
-    Get.offAllNamed(LoginRouting.config().path);
+    Get.offNamedUntil(LoginRouting.config().path,(route) => false,);
   }
 
   @override
@@ -127,7 +127,6 @@ class _SplashScreenState extends State<SplashScreen>
                           fontSize: 27,
                           fontWeight: FontWeight.bold,
                         ),
-                        // textAlign: TextAlign.end,
                       ),
                     ),
                     10.pw,
