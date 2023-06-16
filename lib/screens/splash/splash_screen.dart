@@ -61,8 +61,9 @@ class _SplashScreenState extends State<SplashScreen>
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                RotationTransition(
-                  turns: animation!,
+                FadeTransition(
+                  // turns: animation!,
+                  opacity: animation!,
                   child:const Center(
                     child: ImageContainer(height:200,width: 200,image:
                         'assets/pharmacyImages/logo-removebg-preview.png',),
