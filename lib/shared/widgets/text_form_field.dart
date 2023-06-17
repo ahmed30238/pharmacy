@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DefaultTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final String? labelText;
@@ -23,8 +24,8 @@ class DefaultTextFormField extends StatelessWidget {
       validator: validator,
       controller: controller,
       decoration: InputDecoration(
-        enabledBorder: const UnderlineInputBorder(
-          borderSide: BorderSide(color: Colors.blue, width: 2),
+        enabledBorder:  UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.blue, width: 2.w),
         ),
         filled: filled,
         border: border,

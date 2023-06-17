@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchFormField extends StatelessWidget {
   const SearchFormField({Key? key}) : super(key: key);
@@ -8,21 +9,21 @@ class SearchFormField extends StatelessWidget {
     return TextFormField(
       
       
-      decoration: const InputDecoration(
+      decoration:  InputDecoration(
         
         contentPadding: EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 10,
+          horizontal: 20.w,
+          vertical: 10.h,
         ),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(25),
           ),
         ),
         hintText: 'ما الذي تبحث عنه؟',
         hintTextDirection: TextDirection.rtl,
-        hintStyle: TextStyle(color: Colors.white),
-        suffixIcon: Icon(
+        hintStyle: const TextStyle(color: Colors.white),
+        suffixIcon: const Icon(
           Icons.search,
           color: Colors.white,
         ),

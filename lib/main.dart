@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
         minTextAdapt: true,
         splitScreenMode: true,
-        designSize: const Size(393, 852),
+        designSize: const Size(430, 900),
         builder: (context, child) {
           return GestureDetector(
             onTap: () => FocusManager.instance.primaryFocus!.unfocus(),

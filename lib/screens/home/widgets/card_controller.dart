@@ -75,7 +75,7 @@ class CardsController extends StatelessWidget {
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: ImageContainer(
+                child: const ImageContainer(
                   height: 90,
                   width: 90,
                   image: 'assets/pharmacyImages/A-removebg-preview.png',
