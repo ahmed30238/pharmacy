@@ -12,21 +12,25 @@ class RoutingConfig {
     this.widget = const SizedBox(),
     this.key = '',
     RoutingConfig? config,
-  }){
-    if(config!=null){
+  }) {
+    if (config != null) {
       path = config.path;
       widget = config.widget;
       key = config.key;
     }
-    if(key.isEmpty) key = path;
-    if(key.startsWith('/')){key.substring(1);}
-    if(key.endsWith('/')){key.substring(0,key.length - 1);}
+    if (key.isEmpty) key = path;
+    if (key.startsWith('/')) {
+      key.substring(1);
+    }
+    if (key.endsWith('/')) {
+      key.substring(0, key.length - 1);
+    }
   }
 
   GetPage get page {
     return GetPage(
       name: path,
-      page: ()=> widget,
+      page: () => widget,
       transition: Transition.fadeIn,
     );
   }

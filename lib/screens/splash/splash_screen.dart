@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
   Controller controller = Get.find();
 
   startTime() async {
-    var duration = const Duration(seconds: 1);
+    var duration = const Duration(seconds: 2);
     return Timer(duration, navigator);
   }
 
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 500));
+        vsync: this, duration: const Duration(milliseconds: 1000));
     animation = CurvedAnimation(
       parent: animationController!,
       curve: Curves.linear,

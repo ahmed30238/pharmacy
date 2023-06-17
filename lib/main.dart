@@ -29,12 +29,15 @@ class MyApp extends StatelessWidget {
         splitScreenMode: true,
         designSize: const Size(393, 852),
         builder: (context, child) {
-          return GetMaterialApp(
-            locale: const Locale('ar'),
-            getPages: getPagesList,
-            debugShowCheckedModeBanner: false,
-            initialBinding: InitBinding(),
-            initialRoute: SplashRouting.config().path,
+          return GestureDetector(
+            onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+            child: GetMaterialApp(
+              locale: const Locale('ar'),
+              getPages: getPagesList,
+              debugShowCheckedModeBanner: false,
+              initialBinding: InitBinding(),
+              initialRoute: SplashRouting.config().path,
+            ),
           );
         });
   }
