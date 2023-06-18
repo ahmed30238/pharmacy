@@ -17,7 +17,7 @@ class LoginRouting extends RoutingConfig {
   LoginRouting();
   static RoutingConfig config() => RoutingConfig(
     path: '/login/',
-    widget: LoginScreen(),
+    widget: const LoginScreen(),
   );
 }
 

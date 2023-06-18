@@ -10,13 +10,14 @@ import '../../shared/widgets/text_form_field.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  
   TextEditingController nameController = TextEditingController();
 
   TextEditingController phoneController = TextEditingController();

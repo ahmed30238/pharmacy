@@ -27,11 +27,11 @@ class RoutingConfig {
     }
   }
 
-  GetPage get page {
-    return GetPage(
+  GetPage get page 
+    => GetPage(
       name: path,
       page: () => widget,
       transition: Transition.fadeIn,
     );
-  }
+  
 }

@@ -25,20 +25,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        minTextAdapt: true,
-        splitScreenMode: true,
-        designSize: const Size(430, 900),
-        builder: (context, child) {
-          return GestureDetector(
-            onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
-            child: GetMaterialApp(
-              locale: const Locale('ar'),
-              getPages: getPagesList,
-              debugShowCheckedModeBanner: false,
-              initialBinding: InitBinding(),
-              initialRoute: SplashRouting.config().path,
-            ),
-          );
-        });
+      minTextAdapt: true,
+      splitScreenMode: true,
+      designSize: const Size(430, 900),
+      builder: (context, child) {
+        return GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+          child: GetMaterialApp(
+            locale: const Locale('ar'),
+            getPages: getPagesList,
+            debugShowCheckedModeBanner: false,
+            initialBinding: InitBinding(),
+            initialRoute: SplashRouting.config().path,
+          ),
+        );
+      },
+    );
   }
 }
