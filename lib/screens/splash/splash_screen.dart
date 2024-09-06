@@ -16,7 +16,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
 
-  AnimationController? animationController;
+  AnimationController? _animationController;
 
   Animation<double>? animation;
   Controller controller = Get.find();
@@ -32,22 +32,22 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void initState() {
-    animationController = AnimationController(
+    _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
     animation = CurvedAnimation(
-      parent: animationController!,
+      parent: _animationController!,
       curve: Curves.linear,
     );
 
     animation!.addListener(() => setState(() {}));
-    animationController!.repeat(reverse: false);
+    _animationController!.repeat(reverse: false);
     super.initState();
     startTime();
   }
 
   @override
   void dispose() {
-    animationController!.dispose();
+    _animationController!.dispose();
     super.dispose();
   }
 
