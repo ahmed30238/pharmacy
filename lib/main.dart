@@ -13,6 +13,7 @@ void main() {
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
+  // ..
 
   List<GetPage> getPagesList = [
     SplashRouting.config().page,
