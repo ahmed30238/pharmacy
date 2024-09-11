@@ -13,7 +13,7 @@ void main() {
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  // ..
+  // update flutter version + release tag
 
   List<GetPage> getPagesList = [
     SplashRouting.config().page,
