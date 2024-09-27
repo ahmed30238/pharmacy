@@ -41,6 +41,7 @@ dependencies:
   flutter_bloc: ^8.1.2
   get: ^4.6.5
   flutter_screenutil: ^5.7.0
+  image: ^4.2.0
 
 dev_dependencies:
   flutter_test:

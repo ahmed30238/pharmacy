@@ -54,13 +54,16 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               //!row اطلب ادوية
               const AskForMedication(),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                child: Text(
-                  'استخدم كارت التأمين',
-                  style: TextStyle(
-                    // fontWeight: FontWeight.bold,
-                    fontSize: 25,
+              const RepaintBoundary(
+                key: Key("2"),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  child: Text(
+                    'استخدم كارت التأمين',
+                    style: TextStyle(
+                      // fontWeight: FontWeight.bold,
+                      fontSize: 25,
+                    ),
                   ),
                 ),
               ),
