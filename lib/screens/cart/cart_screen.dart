@@ -8,7 +8,7 @@ import 'package:pharmacy/ex.dart';
 import '../../shared/widgets/default_button.dart';
 
 class CartScreen extends StatelessWidget {
-  CartScreen({Key? key}) : super(key: key);
+  CartScreen({super.key});
   final controller = Get.put(Controller());
   @override
   Widget build(BuildContext context) {

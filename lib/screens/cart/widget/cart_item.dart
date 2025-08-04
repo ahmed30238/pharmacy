@@ -14,10 +14,10 @@ class CartItem extends StatelessWidget {
   final int index;
 
   CartItem({
-    Key? key,
+    super.key,
     required this.model,
     required this.index,
-  }) : super(key: key);
+  });
   // Controller controller = Get.find();
   Controller controller = Get.put(Controller());
   @override
@@ -112,7 +112,6 @@ class CartItem extends StatelessWidget {
                           FloatingActionButton(
                             onPressed: () {
                               controller.incrementCount(btnNum: index);
-
                               if (kDebugMode) {
                                 print(index);
                               }

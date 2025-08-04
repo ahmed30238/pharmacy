@@ -6,8 +6,8 @@ import '../../../shared/widgets/my_image_container.dart';
 
 class AskForMedication extends StatelessWidget {
   const AskForMedication({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

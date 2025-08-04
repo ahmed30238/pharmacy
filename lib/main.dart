@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pharmacy/controller/get.dart';
+import 'package:pharmacy/ex.dart';
 import 'package:pharmacy/shared/init_bindings.dart';
 import 'package:pharmacy/shared/routing.dart';
+import 'package:pharmacy/shared/theme/theme_helper.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  prefs = await SharedPreferences.getInstance();
   InitBinding().dependencies();
-  runApp(MyApp());
+  Varr varr = Varr();
+  varr.setName("n");
+  print("$varr");
+  runApp(const MyWidget());
+}
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
 }
 
 // ignore: must_be_immutable
@@ -25,6 +41,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var f = Get.put(Controller());
     return ScreenUtilInit(
       minTextAdapt: true,
       splitScreenMode: true,
@@ -36,6 +53,9 @@ class MyApp extends StatelessWidget {
             locale: const Locale('ar'),
             getPages: getPagesList,
             debugShowCheckedModeBanner: false,
+            theme: ThemeData.light(),
+            themeMode: f.theme,
+            darkTheme: ThemeData.dark(),
             initialBinding: InitBinding(),
             initialRoute: SplashRouting.config().path,
           ),

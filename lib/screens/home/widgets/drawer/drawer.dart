@@ -9,19 +9,17 @@ import '../../../../shared/methods.dart';
 import '../../../../shared/widgets/default_button.dart';
 import 'drawer_list.dart';
 
-
 class MyDrawer extends StatelessWidget {
   final controller = Get.put(Controller());
   // final controller  = Get.find();
   final BuildContext context;
   final GlobalKey<ScaffoldState>? scaffoldKey;
-  
 
-   MyDrawer({
-    Key? key,
+  MyDrawer({
+    super.key,
     required this.context,
     this.scaffoldKey,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -78,12 +76,19 @@ class MyDrawer extends StatelessWidget {
                     children: List.generate(
                       drawerList.length,
                       (index) => DrawerItemsWidget(
-                       model: drawerList[index],
+                        model: drawerList[index],
                       ),
                     ),
                   )),
                 ),
-
+                GetBuilder<Controller>(
+                  builder: (controller) => MaterialButton(
+                    onPressed: () {
+                      controller.setTheme();
+                    },
+                    child: const Text("Theme"),
+                  ),
+                ),
                 DefaultButton(
                   onTap: () async {
                     SharedPreferences prefs =
